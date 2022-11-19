@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>Heart Disease Prediction</title>
+  </head>
+
+  <body>
+
+<div class="container main">
+  <div class="jumbotron" id="holder">
+     <br>
+    <center><h1 class='main_heading'> Heart Disease Prediction Model</h1></center>
+    <p>This Web Based Application is based on a Machine Learning Algorithm that predicts a patient's chance of having a heart disease or not.
+      [Note that this model is 90% accurate and based on the data of 1134 person]</p>
+    <div><p>Team Members of this project are Salvin Rai,Tamanpreet Kaur,Piyush Shukla,Jhanvi Bajaj and Kanika</p></div>
+    <br>
+    <div class="instructions">
+      <h2>Instructions: </h2>
+      <p>1. Please Enter values for the following fields</p>
+      <p>2. click predict </p>
+    </div>
+
+    <form class="form-horizontal" action="{{ url_for('predict')}}"method="post">
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type= "text" name="age" placeholder="Age" required="required" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="sex" placeholder="Sex: Male=1 Female=0" required="required" />
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="chest_pain_type" placeholder="Chest_pain_type rate between 0-4" required="required" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="resting_blood_pressure" placeholder="Resting Blood Pressure" required="required" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="serum_cholestrol" placeholder="serum cholestoral in mg/dl" required="required" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="blood_sugar" placeholder="fasting blood sugar > 120 mg/dl" required="required" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="cardiography" placeholder="resting electrocardiographic results (values 0,1,2)" required="required" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="max_heartrate" placeholder="maximum heart rate achieved" required="required" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="induced_angina" placeholder="exercise induced angina" required="required" />
+        </div>
+      </div>
+
+
+
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="oldpeak" placeholder="oldpeak=ST depression induced by exercise relative to rest" required="required" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="slope" placeholder="the slope of the peak exercise ST segment" required="required" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="ca" placeholder="number of major vessels (0-3) " required="required" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type="text" name="thal" placeholder="thal: 0 = normal; 1 = fixed defect; 2 = reversable defect" required="required" />
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+         <center><button type="submit" class="button btn btn-default">PREDICT</button></center>
+        </div>
+      </div>
+    </form>
+
+     <br>
+       <center><b><h2 style="color:#FF0000";>{{ pre}}</h2></b></center>
+     <br>
+
+    <h2 class="result"></h2>
+  </div>
+  </div>
+
+  </body>
+</html>
